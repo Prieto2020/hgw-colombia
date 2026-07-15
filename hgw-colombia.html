@@ -444,6 +444,13 @@
   </div>
   <button type="button" class="fab-toggle" id="fabToggle" aria-expanded="false"><span class="icon">+</span><span class="label">MENÚ</span></button>
 </div>
+<script>
+document.getElementById('fabToggle').addEventListener('click', function(){
+  var stack = document.getElementById('fabStack');
+  var open = stack.classList.toggle('open');
+  this.setAttribute('aria-expanded', open ? 'true' : 'false');
+});
+</script>
 
 <main>
 
