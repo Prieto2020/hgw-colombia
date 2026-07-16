@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Health Green World Colombia — Informe de Mercado</title>
-<meta name="description" content="Informe completo del lanzamiento de Health Green World en Colombia: oportunidad, tamaño de mercado, portafolio de productos, modelo de negocio y plan de compensación.">
+<title>Health Green World Colombia — Tamaño de mercado</title>
+<meta name="description" content="Tamaño y proyección del mercado colombiano de suplementos y bienestar: de COP 1,64 billones en 2025 a COP 3,57 billones en 2035, con segmentación por categoría y comparación regional.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Health Green World Colombia — Informe de Mercado">
-<meta property="og:description" content="Informe completo del lanzamiento de Health Green World en Colombia: oportunidad, tamaño de mercado, portafolio de productos, modelo de negocio y plan de compensación.">
+<meta property="og:title" content="Health Green World Colombia — Tamaño de mercado">
+<meta property="og:description" content="Tamaño y proyección del mercado colombiano de suplementos y bienestar: de COP 1,64 billones en 2025 a COP 3,57 billones en 2035, con segmentación por categoría y comparación regional.">
 <meta property="og:image" content="assets/img/logo-hgw.jpg">
 <meta property="og:locale" content="es_CO">
 <meta name="twitter:card" content="summary">
@@ -50,22 +50,85 @@
   </div>
   <button type="button" class="fab-toggle" id="fabToggle" aria-expanded="false"><span class="icon">+</span><span class="label">MENÚ</span></button>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script src="assets/js/site.js"></script>
 
 <main>
 
-  <section id="indice" data-aos="fade-up">
-    <h2>Explora el informe</h2>
-    <p class="lead">Cada tema completo está en su propia página. Elige una para verla.</p>
-    <div class="grid grid-3">
-      <a class="card index-card" href="resumen.html"><h3>00 &middot; Resumen ejecutivo</h3><span class="index-go">Ver p&aacute;gina &rarr;</span></a>
-      <a class="card index-card" href="oportunidad.html"><h3>01 &middot; La oportunidad</h3><span class="index-go">Ver p&aacute;gina &rarr;</span></a>
-      <a class="card index-card" href="mercado.html"><h3>02 &middot; Tamaño de mercado</h3><span class="index-go">Ver p&aacute;gina &rarr;</span></a>
-      <a class="card index-card" href="productos.html"><h3>03 &middot; Portafolio y productos estrella</h3><span class="index-go">Ver p&aacute;gina &rarr;</span></a>
-      <a class="card index-card" href="modelo.html"><h3>04 &middot; Modelo de negocio</h3><span class="index-go">Ver p&aacute;gina &rarr;</span></a>
-      <a class="card index-card" href="negocio.html"><h3>05 &middot; Plan de compensaci&oacute;n</h3><span class="index-go">Ver p&aacute;gina &rarr;</span></a>
+  <section id="mercado" data-aos="fade-up">
+    <h2><span class="num">02</span>Tamaño de mercado</h2>
+    <p class="lead">Evolución del mercado colombiano de suplementos y bienestar, segmentación por categoría y comparación regional.</p>
+
+    <div class="chart-card" data-aos="fade-up">
+      <h3>Serie histórica (COP billones)</h3>
+      <div class="chart-wrap"><canvas id="chart-evolucion"></canvas></div>
     </div>
+    <details style="margin-bottom:28px;">
+      <summary style="cursor:pointer;color:var(--verde);font-size:0.85rem;font-weight:600;margin-bottom:8px;">Ver datos en tabla</summary>
+      <table style="margin-top:10px;">
+        <tr><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>2035 (proy.)</th></tr>
+        <tr><td>1,30</td><td>1,40</td><td>1,51</td><td>1,64</td><td>3,57</td></tr>
+      </table>
+    </details>
+
+    <div class="chart-card" data-aos="fade-up">
+      <h3>Segmentación por categoría (2025)</h3>
+      <div class="chart-wrap donut"><canvas id="chart-segmentacion"></canvas></div>
+    </div>
+    <details style="margin-bottom:28px;">
+      <summary style="cursor:pointer;color:var(--verde);font-size:0.85rem;font-weight:600;margin-bottom:8px;">Ver datos en tabla</summary>
+      <table style="margin-top:10px;">
+        <tr><th>Categoría</th><th>Participación</th><th>Crecimiento anual promedio</th></tr>
+        <tr><td>Vitaminas y minerales</td><td>38%</td><td>7,2%</td></tr>
+        <tr><td>Proteínas y aminoácidos</td><td>25%</td><td>9,5%</td></tr>
+        <tr><td>Suplementos botánicos y probióticos</td><td>18%</td><td>11,2%</td></tr>
+        <tr><td>Nutrición deportiva</td><td>12%</td><td>8,8%</td></tr>
+        <tr><td>Otros (cuidado personal, funcionales)</td><td>7%</td><td>6,5%</td></tr>
+      </table>
+    </details>
+
+    <div class="chart-card" data-aos="fade-up">
+      <h3>Comparativa regional (COP billones, 2025)</h3>
+      <div class="chart-wrap"><canvas id="chart-regional"></canvas></div>
+    </div>
+    <details>
+      <summary style="cursor:pointer;color:var(--verde);font-size:0.85rem;font-weight:600;margin-bottom:8px;">Ver datos en tabla</summary>
+      <table style="margin-top:10px;">
+        <tr><th>País</th><th>Mercado 2025</th><th>Crecimiento anual promedio</th><th>Población (MM)</th></tr>
+        <tr><td>Colombia</td><td>1,64</td><td>8,1%</td><td>52,2</td></tr>
+        <tr><td>México</td><td>8,60</td><td>7,5%</td><td>130</td></tr>
+        <tr><td>Brasil</td><td>15,20</td><td>6,9%</td><td>216</td></tr>
+        <tr><td>Chile</td><td>1,52</td><td>6,5%</td><td>19,8</td></tr>
+        <tr><td>Perú</td><td>1,24</td><td>7,8%</td><td>34</td></tr>
+        <tr><td>Argentina</td><td>2,08</td><td>4,2%</td><td>46</td></tr>
+      </table>
+    </details>
+
+    <script type="application/json" id="market-data">
+    {
+      "evolucion": {
+        "labels": ["2022", "2023", "2024", "2025", "2035 (proy.)"],
+        "valores": [1.30, 1.40, 1.51, 1.64, 3.57]
+      },
+      "segmentacion": {
+        "labels": ["Vitaminas y minerales", "Proteínas y aminoácidos", "Suplementos botánicos y probióticos", "Nutrición deportiva", "Otros"],
+        "valores": [38, 25, 18, 12, 7]
+      },
+      "regional": {
+        "labels": ["Colombia", "México", "Brasil", "Chile", "Perú", "Argentina"],
+        "valores": [1.64, 8.60, 15.20, 1.52, 1.24, 2.08]
+      }
+    }
+    </script>
+
+    <h3 style="margin:28px 0 12px;color:var(--verde-oscuro);">¿Qué tan grande es la oportunidad?</h3>
+    <div class="grid grid-3">
+      <div class="card" data-aos="fade-up" data-aos-delay="0"><div class="stat">COP 1,64 billones</div><div class="stat-label">Todo el mercado posible: suplementos y salud natural en Colombia (2025) · USD 409,54 millones</div></div>
+      <div class="card" data-aos="fade-up" data-aos-delay="80"><div class="stat">~COP 328.000 millones</div><div class="stat-label">El mercado al que sí podemos llegar: ~20% del total — personas de 25 a 45 años, en ciudades, con ingresos medio-altos, que compran desde el celular · USD 82 millones</div></div>
+      <div class="card" data-aos="fade-up" data-aos-delay="160"><div class="stat">~COP 16.400 millones</div><div class="stat-label">Lo que realmente podríamos vender: ~5% de ese grupo en 36 meses, con un catálogo seleccionado y suscripciones · USD 4,1 millones</div></div>
+    </div>
+    <div class="warning"><b>Nota del informe original</b>Estas dos últimas cifras son cálculos estimados a partir de promedios del sector, no son ventas confirmadas.</div>
   </section>
 
 </main>
