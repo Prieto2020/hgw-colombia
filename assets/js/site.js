@@ -185,7 +185,10 @@ document.addEventListener('DOMContentLoaded', function () {
               formatter: function (v) { return fmtCOP(v); }
             }
           },
-          scales: { x: { beginAtZero: true } }
+          scales: {
+            x: { beginAtZero: true },
+            y: { ticks: { autoSkip: false, font: { size: 10.5 } } }
+          }
         }
       });
     }
