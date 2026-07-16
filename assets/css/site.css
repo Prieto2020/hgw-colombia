@@ -327,7 +327,9 @@
   .fab-stack.open .fab-item:nth-child(4){transition-delay:.17s;}
   .fab-item.fi-instagram{background:radial-gradient(circle at 30% 110%,#ffdb73 0%,#fd5949 45%,#d6249f 60%,#285AEB 90%);}
   .fab-item.fi-tiktok{background:#000000;}
+  .fab-item.fi-youtube{background:#FF0000;}
   .fab-stack.open .fab-item:nth-child(5){transition-delay:.22s;}
+  .fab-stack.open .fab-item:nth-child(6){transition-delay:.27s;}
   .fab-item.fi-inicio{background:linear-gradient(135deg,var(--verde-oscuro),var(--verde));}
   .fab-item:hover{filter:brightness(1.08);}
   .fab-item svg{width:26px;height:26px;fill:#fff;display:block;}
