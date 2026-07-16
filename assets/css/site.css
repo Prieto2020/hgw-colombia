@@ -497,3 +497,16 @@
   .faq-a{max-height:0;overflow:hidden;transition:max-height .25s ease;}
   .faq-item.open .faq-a{max-height:400px;}
   .faq-a p{padding:0 22px 18px;color:var(--gris);font-size:0.9rem;}
+
+  /* ===== Testimonios en video ===== */
+  .testimonial-wrap{max-width:380px;margin:0 auto;}
+  .testimonial-card{
+    background:#fff;border-radius:14px;overflow:hidden;
+    box-shadow:0 2px 14px rgba(27,58,43,0.06);border:1px solid #eee7d8;
+  }
+  .testimonial-video{
+    width:100%;display:block;background:#000;aspect-ratio:2/3;object-fit:cover;
+  }
+  .testimonial-caption{padding:16px 20px;}
+  .testimonial-caption p{color:var(--gris);font-size:0.88rem;margin:0;}
+  .testimonial-caption b{color:var(--verde-oscuro);}
