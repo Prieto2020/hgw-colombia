@@ -34,6 +34,17 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  // ---- Tutorial colapsable de la calculadora (negocio.html) ----
+  var tutorialToggle = document.getElementById('tutorialToggle');
+  var tutorialPanel = document.getElementById('tutorialPanel');
+  if (tutorialToggle && tutorialPanel) {
+    tutorialToggle.addEventListener('click', function () {
+      var open = tutorialToggle.classList.toggle('open');
+      tutorialPanel.classList.toggle('open', open);
+      tutorialToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+
   // ---- Calculadora de ingreso potencial (negocio.html) ----
   var calcBoxes = document.getElementById('calc-boxes');
   var calcTeam = document.getElementById('calc-team');
@@ -72,11 +83,19 @@ document.addEventListener('DOMContentLoaded', function () {
   if (dataEl && window.Chart) {
     var data = JSON.parse(dataEl.textContent);
 
+    if (window.ChartDataLabels) {
+      Chart.register(window.ChartDataLabels);
+    }
+
     var verdeOscuro = '#1b3a2b';
     var verde = '#2f6b47';
     var dorado = '#c9a24b';
     var verdeClaro = '#a9d8ba';
     var naranja = '#ff7a00';
+
+    function fmtCOP(v) {
+      return v.toLocaleString('es-CO', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
 
     var evoCtx = document.getElementById('chart-evolucion');
     if (evoCtx) {
@@ -94,7 +113,17 @@ document.addEventListener('DOMContentLoaded', function () {
           }]
         },
         options: {
-          plugins: { legend: { display: false } },
+          layout: { padding: { top: 26 } },
+          plugins: {
+            legend: { display: false },
+            datalabels: {
+              anchor: 'end',
+              align: 'top',
+              color: verdeOscuro,
+              font: { weight: '700', size: 11.5 },
+              formatter: function (v) { return fmtCOP(v); }
+            }
+          },
           scales: {
             y: { beginAtZero: true, ticks: { callback: function (v) { return v + ' B'; } } }
           }
@@ -114,7 +143,16 @@ document.addEventListener('DOMContentLoaded', function () {
           }]
         },
         options: {
-          plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 10.5 } } } }
+          plugins: {
+            legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 10.5 } } },
+            datalabels: {
+              color: function (ctx) {
+                return ctx.dataIndex === 2 ? verdeOscuro : '#fff';
+              },
+              font: { weight: '700', size: 12.5 },
+              formatter: function (v) { return v + '%'; }
+            }
+          }
         }
       });
     }
@@ -136,7 +174,17 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         options: {
           indexAxis: 'y',
-          plugins: { legend: { display: false } },
+          layout: { padding: { right: 38 } },
+          plugins: {
+            legend: { display: false },
+            datalabels: {
+              anchor: 'end',
+              align: 'right',
+              color: verdeOscuro,
+              font: { weight: '700', size: 11.5 },
+              formatter: function (v) { return fmtCOP(v); }
+            }
+          },
           scales: { x: { beginAtZero: true } }
         }
       });

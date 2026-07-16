@@ -510,3 +510,29 @@
   .testimonial-caption{padding:16px 20px;}
   .testimonial-caption p{color:var(--gris);font-size:0.88rem;margin:0;}
   .testimonial-caption b{color:var(--verde-oscuro);}
+
+  /* ===== Tutorial colapsable de la calculadora ===== */
+  .tutorial-toggle{
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.35);
+    color:#fff;font-weight:700;font-size:0.88rem;font-family:inherit;
+    padding:10px 18px;border-radius:30px;cursor:pointer;margin-top:18px;
+  }
+  .tutorial-toggle:hover{background:rgba(255,255,255,0.22);}
+  .tutorial-toggle .plus{font-size:1.15rem;color:var(--dorado);transition:transform .2s ease;flex-shrink:0;}
+  .tutorial-toggle.open .plus{transform:rotate(45deg);}
+  .tutorial-panel{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+  .tutorial-panel.open{max-height:1000px;}
+  .tutorial-panel-inner{padding-top:18px;}
+  .tutorial-panel img{
+    width:100%;border-radius:12px;display:block;margin-bottom:16px;
+    box-shadow:0 4px 18px rgba(0,0,0,0.25);
+  }
+  .tutorial-steps{display:flex;flex-direction:column;gap:10px;}
+  .tutorial-steps .t-step{display:flex;gap:12px;align-items:flex-start;}
+  .tutorial-steps .t-num{
+    flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--dorado);
+    color:var(--verde-oscuro);font-weight:800;font-size:0.85rem;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .tutorial-steps p{color:var(--verde-claro);font-size:0.9rem;margin:0;padding-top:3px;}
