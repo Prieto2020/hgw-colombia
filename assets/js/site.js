@@ -11,6 +11,29 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // ---- Menú desplegable de navegación (arriba a la derecha) ----
+  var siteMenuToggle = document.getElementById('siteMenuToggle');
+  var siteMenuPanel = document.getElementById('siteMenuPanel');
+  if (siteMenuToggle && siteMenuPanel) {
+    var closeSiteMenu = function () {
+      siteMenuPanel.classList.remove('open');
+      siteMenuToggle.setAttribute('aria-expanded', 'false');
+    };
+    siteMenuToggle.addEventListener('click', function (ev) {
+      ev.stopPropagation();
+      var open = siteMenuPanel.classList.toggle('open');
+      siteMenuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.addEventListener('click', function (ev) {
+      if (!siteMenuPanel.contains(ev.target) && ev.target !== siteMenuToggle) {
+        closeSiteMenu();
+      }
+    });
+    document.addEventListener('keydown', function (ev) {
+      if (ev.key === 'Escape') closeSiteMenu();
+    });
+  }
+
   // ---- Animaciones al hacer scroll (AOS) ----
   if (window.AOS) {
     AOS.init({

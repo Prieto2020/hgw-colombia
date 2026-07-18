@@ -15,6 +15,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon-180.png">
 <link rel="stylesheet" href="assets/css/inicio.css">
+<link rel="stylesheet" href="assets/css/nav-menu.css">
 </head>
 <body>
 
@@ -29,6 +30,29 @@
     <a href="productos.html" class="btn btn-secondary"><svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V11M10 20V4M16 20v-7M3 20h18"/></svg> Ver informe de mercado</a>
   </div>
 </header>
+
+<div class="site-nav">
+  <a href="index.html" class="nav-brand"><img src="assets/img/logo-hgw.jpg" alt="Logo HGW">HGW</a>
+  <div class="site-menu-wrap">
+    <button type="button" class="site-menu-toggle" id="siteMenuToggle" aria-expanded="false" aria-label="Abrir menú de navegación">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+    <div class="site-menu-panel" id="siteMenuPanel">
+      <a href="index.html" class="site-menu-item current"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5 12 4l8 6.5"/><path d="M6 9.5V20h5v-5h2v5h5V9.5"/></svg>Inicio</a>
+      <div class="site-menu-divider"></div>
+      <a href="hgw-colombia.html" class="site-menu-item"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg>Informe completo</a>
+      <a href="resumen.html" class="site-menu-item"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><path d="M9.5 12h5M9.5 15.5h5"/></svg>Resumen ejecutivo</a>
+      <a href="oportunidad.html" class="site-menu-item"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/></svg>La oportunidad</a>
+      <a href="mercado.html" class="site-menu-item"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V11M10 20V4M16 20v-7M3 20h18"/></svg>Tamaño de mercado</a>
+      <a href="productos.html" class="site-menu-item"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9h12l1 10.5A2 2 0 0 1 17 21.5H7A2 2 0 0 1 5 19.5L6 9z"/><path d="M9 9V7a3 3 0 0 1 6 0v2h-1.6V7a1.4 1.4 0 0 0-2.8 0v2H9z"/></svg>Portafolio y productos</a>
+      <a href="modelo.html" class="site-menu-item"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.3"/><circle cx="18" cy="6" r="2.3"/><circle cx="12" cy="18" r="2.3"/><path d="M8.1 7.3 10.5 16M15.9 7.3 13.5 16M8.4 6h7.2"/></svg>Modelo de negocio</a>
+      <a href="negocio.html" class="site-menu-item"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="7" r="2"/><circle cx="17" cy="17" r="2"/><path d="M6 18 18 6"/></svg>Plan de compensación</a>
+      <div class="site-menu-divider"></div>
+      <a href="blog.html" class="site-menu-item"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5V5a2 2 0 0 1 2-2h9l5 5v11.5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M14 3v5h5"/><path d="M8 12h8M8 16h5"/></svg>Blog</a>
+      <a href="recursos.html" class="site-menu-item"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M4 19h16"/></svg>Recursos descargables</a>
+    </div>
+  </div>
+</div>
 
 <main>
   <div class="company-video-section" data-aos="fade-up">
