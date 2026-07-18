@@ -21,6 +21,26 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // ---- Autoplay del video de la compañía al entrar en pantalla ----
+  var companyVideo = document.querySelector('.company-video');
+  if (companyVideo) {
+    if ('IntersectionObserver' in window) {
+      var cvIO = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            companyVideo.play().catch(function () {});
+          } else {
+            companyVideo.pause();
+          }
+        });
+      }, { threshold: 0.5 });
+      cvIO.observe(companyVideo);
+    } else {
+      // Respaldo sin IntersectionObserver: reproducir de una vez.
+      companyVideo.play().catch(function () {});
+    }
+  }
+
   // ---- Reveal de fotos de producto + tilt sutil (estilo agencia) ----
   // Nota: las fotos son visibles por defecto (ver site.css); solo se ocultan
   // momentáneamente aquí para animar, y siempre tienen un respaldo por timeout
