@@ -567,11 +567,15 @@
   .product-card{perspective:1000px;}
   .product-card .photo{position:relative;}
   .product-card .photo img{
+    opacity:1;
+    transition:transform 1s cubic-bezier(.16,1,.3,1), filter .7s ease, opacity .8s ease;
+    will-change:transform;
+  }
+  /* El JS agrega "pre-reveal" justo antes de animar; si el JS no corre, la foto nunca se oculta */
+  .product-card .photo.pre-reveal img{
     transform:scale(1.14);
     filter:grayscale(55%) saturate(1.05);
     opacity:0;
-    transition:transform 1s cubic-bezier(.16,1,.3,1), filter .7s ease, opacity .8s ease;
-    will-change:transform;
   }
   .product-card .photo.in-view img{transform:scale(1);opacity:1;}
   .product-card:hover .photo img{filter:grayscale(0%) saturate(1.05);transform:scale(1.045);}

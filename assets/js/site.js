@@ -22,14 +22,36 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // ---- Reveal de fotos de producto + tilt sutil (estilo agencia) ----
-  var photos = document.querySelectorAll('.product-card .photo');
-  if (photos.length && 'IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); }
-      });
-    }, { threshold: 0.3 });
-    photos.forEach(function (p) { io.observe(p); });
+  // Nota: las fotos son visibles por defecto (ver site.css); solo se ocultan
+  // momentáneamente aquí para animar, y siempre tienen un respaldo por timeout
+  // para que nunca queden invisibles si algo falla (caché vieja, error, etc.).
+  try {
+    var photos = document.querySelectorAll('.product-card .photo');
+    if (photos.length && 'IntersectionObserver' in window) {
+      photos.forEach(function (p) { p.classList.add('pre-reveal'); });
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('in-view');
+            e.target.classList.remove('pre-reveal');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.3 });
+      photos.forEach(function (p) { io.observe(p); });
+      // Respaldo: si por lo que sea el observer no revela algo en 2s, se muestra igual.
+      setTimeout(function () {
+        photos.forEach(function (p) {
+          p.classList.add('in-view');
+          p.classList.remove('pre-reveal');
+        });
+      }, 2000);
+    }
+  } catch (err) {
+    document.querySelectorAll('.product-card .photo').forEach(function (p) {
+      p.classList.remove('pre-reveal');
+      p.classList.add('in-view');
+    });
   }
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!reduceMotion) {
