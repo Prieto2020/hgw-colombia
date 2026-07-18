@@ -15,14 +15,19 @@
     background:linear-gradient(135deg,var(--verde-oscuro),var(--verde));
     color:#fff;padding:70px 24px 60px;text-align:center;position:relative;overflow:hidden;
   }
+  header .header-bg-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:0.85;}
+  header::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(27,58,43,0.55),rgba(47,107,71,0.5));z-index:1;}
+  header .logo,header h1,header p,header .hero-ctas{position:relative;z-index:2;}
   header::after{
     content:"";position:absolute;bottom:-40px;left:0;right:0;height:80px;
     background:var(--crema);border-radius:50% 50% 0 0/40px 40px;
   }
   header img.logo{width:88px;height:88px;border-radius:50%;object-fit:cover;object-position:50% 42%;
     box-shadow:0 3px 14px rgba(0,0,0,0.25);border:2px solid rgba(255,255,255,0.65);margin-bottom:18px;background:var(--crema);}
-  header h1{font-size:clamp(1.8rem,5vw,2.8rem);font-weight:700;letter-spacing:-0.5px;}
-  header p{margin-top:12px;font-size:1.05rem;color:var(--verde-claro);font-weight:300;max-width:600px;margin-left:auto;margin-right:auto;}
+  header .hero-video{width:100%;max-width:520px;border-radius:18px;margin:20px auto 0;display:block;
+    box-shadow:0 12px 34px rgba(0,0,0,0.28);position:relative;z-index:2;}
+  header h1{font-size:clamp(1.8rem,5vw,2.8rem);font-weight:700;letter-spacing:-0.5px;text-shadow:0 2px 12px rgba(0,0,0,0.45);}
+  header p{margin-top:12px;font-size:1.05rem;color:var(--verde-claro);font-weight:300;max-width:600px;margin-left:auto;margin-right:auto;text-shadow:0 1px 8px rgba(0,0,0,0.4);}
   .hero-ctas{margin-top:30px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;z-index:2;}
   .btn{display:inline-block;text-decoration:none;font-weight:700;padding:14px 26px;border-radius:28px;font-size:0.92rem;transition:transform .15s ease, filter .15s ease;}
   .btn:hover{transform:translateY(-2px);}
@@ -238,4 +243,16 @@
     .fab-stack{right:16px;bottom:16px;gap:10px;}
     .fab-shop{width:78px;height:78px;left:16px;bottom:16px;}
     footer{padding-bottom:110px;}
+  }
+
+  /* ===== Movimiento en imágenes ===== */
+  @keyframes hgw-float{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+  header img.logo,footer .flogo{
+    animation:hgw-float 5s ease-in-out infinite;transition:transform .3s ease, box-shadow .3s ease;
+  }
+  footer .flogo{animation-duration:5.6s;}
+  header img.logo:hover{transform:scale(1.06);box-shadow:0 4px 20px rgba(201,162,75,0.55);}
+
+  @media (prefers-reduced-motion: reduce){
+    header img.logo,footer .flogo{animation:none !important;transition:none !important;}
   }

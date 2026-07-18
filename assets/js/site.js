@@ -21,6 +21,29 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // ---- Reveal de fotos de producto + tilt sutil (estilo agencia) ----
+  var photos = document.querySelectorAll('.product-card .photo');
+  if (photos.length && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.3 });
+    photos.forEach(function (p) { io.observe(p); });
+  }
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduceMotion) {
+    document.querySelectorAll('.product-card').forEach(function (card) {
+      card.addEventListener('mousemove', function (ev) {
+        var r = card.getBoundingClientRect();
+        var x = (ev.clientX - r.left) / r.width - 0.5;
+        var y = (ev.clientY - r.top) / r.height - 0.5;
+        card.style.transform = 'rotateX(' + (-y * 6) + 'deg) rotateY(' + (x * 6) + 'deg) translateY(-2px)';
+      });
+      card.addEventListener('mouseleave', function () { card.style.transform = ''; });
+    });
+  }
+
   // ---- Acordeón de preguntas frecuentes ----
   document.querySelectorAll('.faq-item').forEach(function (item) {
     var q = item.querySelector('.faq-q');
