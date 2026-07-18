@@ -24,20 +24,30 @@ document.addEventListener('DOMContentLoaded', function () {
   // ---- Autoplay del video de la compañía al entrar en pantalla ----
   var companyVideo = document.querySelector('.company-video');
   if (companyVideo) {
+    // Reforzar mute como propiedad (algunos navegadores solo respetan esto,
+    // no solo el atributo HTML) — es indispensable para que el autoplay no
+    // sea bloqueado por la política del navegador.
+    companyVideo.muted = true;
+    companyVideo.defaultMuted = true;
+    var tryPlayCompanyVideo = function () { companyVideo.play().catch(function () {}); };
     if ('IntersectionObserver' in window) {
       var cvIO = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
-            companyVideo.play().catch(function () {});
+            tryPlayCompanyVideo();
           } else {
             companyVideo.pause();
           }
         });
-      }, { threshold: 0.5 });
+      }, { threshold: 0.25 });
       cvIO.observe(companyVideo);
+      // Respaldo: reintentar en cuanto el video tenga suficientes datos,
+      // por si el primer intento de play() fue antes de que cargara.
+      companyVideo.addEventListener('loadedmetadata', tryPlayCompanyVideo);
+      companyVideo.addEventListener('canplay', tryPlayCompanyVideo);
     } else {
       // Respaldo sin IntersectionObserver: reproducir de una vez.
-      companyVideo.play().catch(function () {});
+      tryPlayCompanyVideo();
     }
   }
 
