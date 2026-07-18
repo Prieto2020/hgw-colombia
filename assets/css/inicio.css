@@ -256,3 +256,10 @@
   @media (prefers-reduced-motion: reduce){
     header img.logo,footer .flogo{animation:none !important;transition:none !important;}
   }
+
+  /* ===== Video de la compañía (inicio) ===== */
+  .company-video-section{margin:24px 0 4px;}
+  .company-video{
+    width:100%;display:block;background:#000;border-radius:14px;
+    box-shadow:0 8px 28px rgba(27,58,43,0.18);
+  }
